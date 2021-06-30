@@ -1,6 +1,6 @@
-package dio0;
+package dia0;
 
-public class main {
+public class Main {
 
     public static void Main(String[] args) {
         System.out.println("Olá talentos tech bank");
