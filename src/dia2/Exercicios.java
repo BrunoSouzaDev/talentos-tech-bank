@@ -4,9 +4,32 @@ import java.util.Scanner;
 
 public class Exercicios {
     public static void main(String[] args) {
-
-        Exercicio6();
+        Exercicio5();
 }
+
+    public static void validaSystemInInteiro(Scanner in) {
+        if (!in.hasNextInt()) {
+            System.out.println("Você precisa digitar um número inteiro");
+            in.close();
+            System.exit(1);
+        }
+    }
+
+    public static void validaSystemInString(Scanner in) {
+        if (!in.hasNext()) {
+            System.out.println("Você precisa digitar uma string");
+            in.close();
+            System.exit(1);
+        }
+    }
+
+    public static void validaSystemInDouble(Scanner in) {
+        if (!in.hasNextDouble()) {
+            System.out.println("Você precisa digitar um número real");
+            in.close();
+            System.exit(1);
+        }
+    }
 
     public static void Exercicio1() {
 //        1.Escreva um algoritmo que leia um número inteiro e diga se ele é par ou ímpar.
@@ -115,6 +138,9 @@ public class Exercicios {
 
         int menorValor = numero;
         int maiorValor = numero;
+        int somaDosValores = 0;
+
+        somaDosValores = somaDosValores + numero;
 
         System.out.println("Digite o segundo numero:");
         numero = in.nextInt();
@@ -127,6 +153,8 @@ public class Exercicios {
             menorValor = numero;
         }
 
+        somaDosValores += numero;
+
         System.out.println("Digite o terceiro numero:");
         numero = in.nextInt();
 
@@ -137,6 +165,8 @@ public class Exercicios {
         if (numero < menorValor) {
             menorValor = numero;
         }
+
+        somaDosValores += numero;
 
         System.out.println("Digite o quarto numero:");
         numero = in.nextInt();
@@ -149,6 +179,8 @@ public class Exercicios {
             menorValor = numero;
         }
 
+        somaDosValores += numero;
+
         System.out.println("Digite o quinto numero:");
         numero = in.nextInt();
 
@@ -159,6 +191,8 @@ public class Exercicios {
         if (numero < menorValor) {
             menorValor = numero;
         }
+
+        somaDosValores += numero;
 
         System.out.println("Digite o sexto numero:");
         numero = in.nextInt();
@@ -171,6 +205,8 @@ public class Exercicios {
             menorValor = numero;
         }
 
+        somaDosValores += numero;
+
         System.out.println("Digite o setimo numero:");
         numero = in.nextInt();
 
@@ -181,6 +217,8 @@ public class Exercicios {
         if (numero < menorValor) {
             menorValor = numero;
         }
+
+        somaDosValores += numero;
 
         System.out.println("Digite o oitavo numero:");
         numero = in.nextInt();
@@ -193,6 +231,8 @@ public class Exercicios {
             menorValor = numero;
         }
 
+        somaDosValores += numero;
+
         System.out.println("Digite o nono numero:");
         numero = in.nextInt();
 
@@ -203,6 +243,8 @@ public class Exercicios {
         if (numero < menorValor) {
             menorValor = numero;
         }
+
+        somaDosValores += numero;
 
         System.out.println("Digite o decimo numero:");
         numero = in.nextInt();
@@ -215,8 +257,13 @@ public class Exercicios {
             menorValor = numero;
         }
 
+        somaDosValores += numero;
+
         System.out.println("O maior valor digitado foi: " + maiorValor);
         System.out.println("O menor valor digitado foi: " + menorValor);
+        System.out.printf("A média dos valores é: " + (somaDosValores/10.0));
+
+        in.close();
     }
 
     public static void Exercicio5() {
@@ -226,31 +273,39 @@ public class Exercicios {
 
         Scanner in = new Scanner(System.in);
 
-        System.out.println("Digite a operação que deseja fazer (a, s, m, d)");
-        String operacao = in.next();
+        System.out.println("Adição - 1");
+        System.out.println("Subtração - 2");
+        System.out.println("Multiplicação - 3");
+        System.out.println("Divisão - 4");
+        System.out.println("Digite a operação que deseja fazer");
+        validaSystemInString(in);
+        int operacao = in.nextInt();
 
         System.out.println("Digite o primeiro valor");
-        int valor1 = in.nextInt();
+        validaSystemInDouble(in);
+        double valor1 = in.nextDouble();
 
         System.out.println("Digite o segundo valor");
-        int valor2 = in.nextInt();
+        validaSystemInDouble(in);
+        double valor2 = in.nextDouble();
 
         switch(operacao) {
-            case "a":
-                int soma = valor1 + valor2;
+            case 1:
+                double soma = valor1 + valor2;
                 System.out.println("A soma entre os valores é: " + soma);
                 break;
-            case "s":
-                int subtracao = valor1 - valor2;
+            case 2:
+                double subtracao = valor1 - valor2;
                 System.out.println("A subtração entre os valores é: " + subtracao);
                 break;
-            case "m":
-                int multiplicacao = valor1 * valor2;
+            case 3:
+                double multiplicacao = valor1 * valor2;
                 System.out.println("A multiplicação entre os valores é: " + multiplicacao);
                 break;
-            case "d":
+            case 4:
                 if (valor2 == 0) {
                     System.out.println("Não se pode dividir por 0");
+                    break;
                 } else {
                     double divisao = valor1 / (double) valor2;
                     System.out.println("A divisão entre os valores é: " + divisao);
@@ -276,53 +331,53 @@ public class Exercicios {
         final String papel = "pa";
         final String tesoura = "te";
 
-        System.out.println("Pedra papel e tesoura");
+        System.out.println("Pedra, papel e tesoura");
         System.out.println("pe = Pedra");
         System.out.println("pa = Papel");
         System.out.println("te = Tesoura");
 
-        System.out.println("Insira a escolha do primeiro jogador 1");
+        System.out.println("Insira a escolha do primeiro jogador ");
         String escolhaJogador1 = in.next();
 
         if (!(escolhaJogador1.equals(pedra) || escolhaJogador1.equals(papel) || escolhaJogador1.equals(tesoura))) {
             System.out.println("O jogador 1 não escolheu uma opção válida");
-            System.exit(0);
+            System.exit(1);
         }
 
-        System.out.println("Insira a escolha do segundo jogador 2");
+        System.out.println("Insira a escolha do segundo jogador ");
         String escolhaJogador2 = in.next();
 
         if (!(escolhaJogador2.equals(pedra) || escolhaJogador2.equals(papel) || escolhaJogador2.equals(tesoura))) {
             System.out.println("O jogador 2 não escolheu uma opção válida");
-            System.exit(0);
+            System.exit(1);
         }
 
         if (escolhaJogador1.equals(escolhaJogador2)) {
             System.out.println("Houve empate");
-            System.exit(0);
+            System.exit(1);
         }
 
 
         switch (escolhaJogador1) {
             case pedra:
                 if (escolhaJogador2.equals(tesoura)) {
-                    System.out.println("Vitória do jogador 1, pedra vence tesoura!");
+                    System.out.println("Vitória do jogador 1!");
                 } else if (escolhaJogador2.equals(papel)) {
-                    System.out.println("Vitória do jogador 2, papel vence pedra!");
+                    System.out.println("Vitória do jogador 2!");
                 }
                 break;
             case papel:
                 if (escolhaJogador2.equals(pedra)) {
-                    System.out.println("Vitória do jogador 1, papel vence pedra!");
+                    System.out.println("Vitória do jogador 1!");
                 } else if (escolhaJogador2.equals(tesoura)) {
-                    System.out.println("Vitória do jogador 2, tesoura vence papel!");
+                    System.out.println("Vitória do jogador 2!");
                 }
                 break;
             case tesoura:
                 if (escolhaJogador2.equals(papel)) {
-                    System.out.println("Vitória do jogador 1, tesoura vence papel!");
+                    System.out.println("Vitória do jogador 1!");
                 } else if (escolhaJogador2.equals(pedra)) {
-                    System.out.println("Vitória do jogador 2, pedra vence tesoura!");
+                    System.out.println("Vitória do jogador 2!");
                 }
                 break;
         }
