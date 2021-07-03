@@ -1,4 +1,4 @@
-package dia1;
+package dia2;
 
 public class Revisao {
 
@@ -9,7 +9,6 @@ public class Revisao {
         float f = l;
         double d = f;
 
-
         double d2 = 100000000000000.00;
         float f2 = (float) d2;
         long l2 = (long) f2;
@@ -18,13 +17,11 @@ public class Revisao {
 
         System.out.println(s2);
 
-
         short a1 = 123;
         short b1 = 123;
         int c1 = a1 + b1;
 
         System.out.println(c1);
-
 
         int a2 = 123;
         int b2 = 123;
@@ -43,11 +40,9 @@ public class Revisao {
         System.out.println(resultLong);
         System.out.println(resultLong3);
 
-
         int xpto = 1;
         long xpto2 = 2;
         long resultXpto = xpto + xpto2;
-
 
         System.out.println("-----------------");
 

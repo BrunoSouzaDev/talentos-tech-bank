@@ -1,4 +1,4 @@
-package dia1;
+package dia2;
 
 import java.util.Scanner;
 
@@ -8,10 +8,12 @@ public class Exercicio {
     }
 
     public static void exercicio1() {
-//        1.Escreva um algoritmo que armazene o valor 99 em uma variável Y e
-//        o valor 11 em uma variável Z. A seguir (utilizando apenas atribuições entre variáveis)
-//        troque os seus conteúdos fazendo com que o valor que está em Y passe para Z e
-//        vice-versa. Ao final, escrever os valores que ficaram armazenados nas variáveis.
+        // 1.Escreva um algoritmo que armazene o valor 99 em uma variável Y e
+        // o valor 11 em uma variável Z. A seguir (utilizando apenas atribuições entre
+        // variáveis)
+        // troque os seus conteúdos fazendo com que o valor que está em Y passe para Z e
+        // vice-versa. Ao final, escrever os valores que ficaram armazenados nas
+        // variáveis.
 
         short Y = 99;
         short Z = 11;
@@ -31,7 +33,8 @@ public class Exercicio {
     }
 
     public static void exercicio2() {
-//        2.Escreva um algoritmo para ler um valor (do teclado) e escrever (na tela) o seu antecessor.
+        // 2.Escreva um algoritmo para ler um valor (do teclado) e escrever (na tela) o
+        // seu antecessor.
 
         Scanner in = new Scanner(System.in);
         System.out.println("Digite o valor para mostrar seu antecessor:");
@@ -39,10 +42,10 @@ public class Exercicio {
 
         int antecessor = valor - 1;
         System.out.println("O antecessor de " + valor + " é: " + antecessor);
-//        or
-//        System.out.println("O antecessor de " + valor + " é: "+ --valor);
-//        or
-//        System.out.println("O antecessor de " + valor + " é: " + valor-1);
+        // or
+        // System.out.println("O antecessor de " + valor + " é: "+ --valor);
+        // or
+        // System.out.println("O antecessor de " + valor + " é: " + valor-1);
 
         System.out.println(valor);
         in.close();
@@ -64,15 +67,15 @@ public class Exercicio {
     }
 
     public static void exercicio4() {
-//        4.Escreva um algoritmo para ler o
-//        número total de eleitores de um município, o número de votos
-//        brancos, nulos e válidos. Calcular e escrever o percentual que cada
-//        um representa em relação ao total de eleitores.
+        // 4.Escreva um algoritmo para ler o
+        // número total de eleitores de um município, o número de votos
+        // brancos, nulos e válidos. Calcular e escrever o percentual que cada
+        // um representa em relação ao total de eleitores.
 
         Scanner in = new Scanner(System.in);
 
-//        System.out.println("Digite a quantidade de eleitores:");
-//        double eleitores = in.nextDouble();
+        // System.out.println("Digite a quantidade de eleitores:");
+        // double eleitores = in.nextDouble();
 
         System.out.println("Digite os votos brancos:");
         double brancos = in.nextDouble();
@@ -88,10 +91,9 @@ public class Exercicio {
         double nulosPorcentagem = (nulos / eleitores) * 100;
         double validosPorcentagem = (validos / eleitores) * 100;
 
-        System.out.println(brancosPorcentagem + "% Porcentagem de brancos" );
+        System.out.println(brancosPorcentagem + "% Porcentagem de brancos");
         System.out.println(nulosPorcentagem + "% Porcentagem de nulos");
         System.out.println(validosPorcentagem + "% Porcentagem de validos");
         in.close();
     }
 }
-

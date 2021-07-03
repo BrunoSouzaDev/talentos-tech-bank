@@ -1,11 +1,11 @@
-package dia2;
+package dia3;
 
 import java.util.Scanner;
 
 public class Exercicios {
     public static void main(String[] args) {
         Exercicio5();
-}
+    }
 
     public static void validaSystemInInteiro(Scanner in) {
         if (!in.hasNextInt()) {
@@ -32,7 +32,8 @@ public class Exercicios {
     }
 
     public static void Exercicio1() {
-//        1.Escreva um algoritmo que leia um número inteiro e diga se ele é par ou ímpar.
+        // 1.Escreva um algoritmo que leia um número inteiro e diga se ele é par ou
+        // ímpar.
         Scanner in = new Scanner(System.in);
 
         System.out.println("Digite o numero para saber se é par ou impar:");
@@ -50,19 +51,21 @@ public class Exercicios {
             System.out.println("É um numero impar");
         }
 
-//        String resultadoTernario = numero % 2 == 0 ? "É um numero par" : "É um numero impar";
-//        System.out.println(resultadoTernario);
+        // String resultadoTernario = numero % 2 == 0 ? "É um numero par" : "É um numero
+        // impar";
+        // System.out.println(resultadoTernario);
 
         in.close();
     }
 
     public static void Exercicio2() {
-//        2.Elabore um algoritmo que dada a idade de um nadador classifique-o em uma das seguintes categorias:
-//        Infantil A = 5 a 7 anos
-//        Infantil B = 8 a 11 anos
-//        Juvenil A = 12 a 13 anos
-//        Juvenil B = 14 a 17 anos
-//        Adultos = Maiores de 18 anos
+        // 2.Elabore um algoritmo que dada a idade de um nadador classifique-o em uma
+        // das seguintes categorias:
+        // Infantil A = 5 a 7 anos
+        // Infantil B = 8 a 11 anos
+        // Juvenil A = 12 a 13 anos
+        // Juvenil B = 14 a 17 anos
+        // Adultos = Maiores de 18 anos
 
         Scanner in = new Scanner(System.in);
         System.out.println("Digite a idade do nadador:");
@@ -92,7 +95,8 @@ public class Exercicios {
     }
 
     public static void Exercicio3() {
-//        3.Escreva um algoritmo em Java que leia dois números inteiros e determine qual é o menor. Escreva um algoritmo que determina o maior também.
+        // 3.Escreva um algoritmo em Java que leia dois números inteiros e determine
+        // qual é o menor. Escreva um algoritmo que determina o maior também.
 
         Scanner in = new Scanner(System.in);
         System.out.println("Digite o primeiro numero:");
@@ -127,12 +131,12 @@ public class Exercicios {
     }
 
     public static void Exercicio4() {
-//        4.Construa um algoritmo que leia 10 valores inteiros e positivos e:
-//        Encontre o maior valor
-//        Encontre o menor valor
+        // 4.Construa um algoritmo que leia 10 valores inteiros e positivos e:
+        // Encontre o maior valor
+        // Encontre o menor valor
 
         Scanner in = new Scanner(System.in);
-    
+
         System.out.println("Digite o primeiro numero:");
         int numero = in.nextInt();
 
@@ -261,15 +265,17 @@ public class Exercicios {
 
         System.out.println("O maior valor digitado foi: " + maiorValor);
         System.out.println("O menor valor digitado foi: " + menorValor);
-        System.out.printf("A média dos valores é: " + (somaDosValores/10.0));
+        System.out.printf("A média dos valores é: " + (somaDosValores / 10.0));
 
         in.close();
     }
 
     public static void Exercicio5() {
-//        5.Calcule a média dos números lidos
-//        Escreva um algoritmo em Java que seja capaz de fazer as seguintes operações matemáticas (adição, subtração, multiplicação e divisão).
-//        Todas as operações serão entre dois valores. No começo do algoritmo pergunte ao usuário qual operação ele deseja fazer e quais são os valores.
+        // 5.Calcule a média dos números lidos
+        // Escreva um algoritmo em Java que seja capaz de fazer as seguintes operações
+        // matemáticas (adição, subtração, multiplicação e divisão).
+        // Todas as operações serão entre dois valores. No começo do algoritmo pergunte
+        // ao usuário qual operação ele deseja fazer e quais são os valores.
 
         Scanner in = new Scanner(System.in);
 
@@ -289,7 +295,7 @@ public class Exercicios {
         validaSystemInDouble(in);
         double valor2 = in.nextDouble();
 
-        switch(operacao) {
+        switch (operacao) {
             case 1:
                 double soma = valor1 + valor2;
                 System.out.println("A soma entre os valores é: " + soma);
@@ -318,10 +324,12 @@ public class Exercicios {
     }
 
     public static void Exercicio6() {
-//        6.Faça a implementação do Jogo Pedra, Papel e Tesoura (Jokempô).
-//        O algoritmo deverá perguntar qual é a escolha do jogador 1 (Pedra [pe], Papel [pa], Tesoura [t]) e deverá fazer o mesmo para o jogador 2.
-//        No final da execução o algoritmo deverá dizer qual é o jogador vencedor ou se houve empate.
-//
+        // 6.Faça a implementação do Jogo Pedra, Papel e Tesoura (Jokempô).
+        // O algoritmo deverá perguntar qual é a escolha do jogador 1 (Pedra [pe], Papel
+        // [pa], Tesoura [t]) e deverá fazer o mesmo para o jogador 2.
+        // No final da execução o algoritmo deverá dizer qual é o jogador vencedor ou se
+        // houve empate.
+        //
 
         int player, computer;
 
@@ -357,7 +365,6 @@ public class Exercicios {
             System.exit(1);
         }
 
-
         switch (escolhaJogador1) {
             case pedra:
                 if (escolhaJogador2.equals(tesoura)) {
@@ -385,31 +392,3 @@ public class Exercicios {
         in.close();
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
