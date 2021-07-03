@@ -1,47 +1,39 @@
 package dia3;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Main {
 
     public static void main(String[] args) {
-        // WHILE = enquanto
-        int x = 1;
 
-        while (x < 11) {
-            System.out.println(x);
-            x++;
-        }
+    }
 
-        //  DO WHILE = faça enquanto
-        x = 11;
-        do {
-            System.out.println(x);
-            x++;
-        } while (x < 11);
+    public static void operadores() {
+        // Atribuição
+        int idade = 28;
 
-        // for = para
-        // TODO For (i = 0; i < 10; i++)
-        for (int i = 0; i < 10; i++ ){
-            System.out.println(i);
-        }
+        // Aritiméticos
+        int i = 1 + 1; // + - * / ++ -- %
 
-        // forEach = paraCada
-        // TODO Foreach List
+        // Relacionais
+        boolean operadorRelacional = 1 >= 1; // <= >= != == > <
 
-        List<Integer> listaDeInteiros= new ArrayList<>();
-        listaDeInteiros.add(1);
-        listaDeInteiros.add(2);
-        listaDeInteiros.add(3);
+        // Lógicos
+        boolean testeLogico = 1 == 1 && 2 == 2; // && ||
 
-        listaDeInteiros.forEach(item -> {
-            System.out.println(item);
-        });
+        // Negação
+        boolean invertido = !true; // ! !!
+    }
 
-        for (int i = 0; i < listaDeInteiros.size(); i++) {
-            System.out.println(listaDeInteiros.get(i));
+    public static void primeiroIf() {
+        int idade = 19;
+
+        if (idade < 0) {
+            System.out.println("idade inválida");
+        } else if (idade >= 150) {
+            System.out.println("idade inválida");
+        } else if (idade >= 18) {
+            System.out.println("Você tem permissao para assistir este conteúdo");
+        } else {
+            System.out.println("Você não term permissao para assistir este conteúdo");
         }
     }
 }
-
