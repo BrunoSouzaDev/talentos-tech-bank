@@ -4,12 +4,12 @@ import java.util.Scanner;
 
 public class Exercicios {
 
-    public static void Exercicio1(){
-//        1.Construa um algoritmo que leia 10 valores inteiros e positivos e:
-//        -Encontre o maior valor
-//        -Encontre o menor valor
-//        -Calcule a média dos números lidos Esse exercício foi dado na aula 3 e agora vamos otimizar ele utilizando o while e for.
-
+    public static void Exercicio1() {
+        // 1.Construa um algoritmo que leia 10 valores inteiros e positivos e:
+        // -Encontre o maior valor
+        // -Encontre o menor valor
+        // -Calcule a média dos números lidos Esse exercício foi dado na aula 3 e agora
+        // vamos otimizar ele utilizando o while e for.
 
         Scanner in = new Scanner(System.in);
         int c = 1;
@@ -31,20 +31,21 @@ public class Exercicios {
         }
         System.out.println("O maior valor é " + maiorValor);
         System.out.println("O menor valor é " + menorValor);
-        System.out.println("A média dos valores é " + somaDosValores/10);
+        System.out.println("A média dos valores é " + somaDosValores / 10);
 
         in.close();
     }
 
-    public static void Exercicio2(){
-//       2.Construa um algoritmo usando uma estrutura de repetição que calcule o fatorial de um número.
+    public static void Exercicio2() {
+        // 2.Construa um algoritmo usando uma estrutura de repetição que calcule o
+        // fatorial de um número.
 
         Scanner in = new Scanner(System.in);
         System.out.println("Escolha um numero para fazer o Fatorial");
         double n = in.nextDouble();
         double resultado = 1;
 
-        for (double i = n; i > 1; i--){
+        for (double i = n; i > 1; i--) {
             resultado = resultado * i;
         }
         System.out.println("O resultado é " + resultado);
