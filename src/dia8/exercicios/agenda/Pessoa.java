@@ -1,8 +1,7 @@
 package dia8.exercicios.agenda;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.concurrent.ExecutionException;
+import java.time.Year;
+import java.util.Objects;
 
 public class Pessoa {
 
@@ -12,11 +11,14 @@ public class Pessoa {
 
     private Double altura;
 
-    public Pessoa(String nome, Integer anoDeNascimento, Double altura) {
+    private String numeroDeCelular;
+
+    public Pessoa(String nome, Integer anoDeNascimento, Double altura, String numeroDeCelular) {
 
         this.setNome(nome);
         this.setAnoDeNascimento(anoDeNascimento);
         this.setAltura(altura);
+        this.setNumeroDeCelular(numeroDeCelular);
     }
 
     public String getNome() {
@@ -43,28 +45,50 @@ public class Pessoa {
         this.altura = altura;
     }
 
+    public String getNumeroDeCelular() {
+        return numeroDeCelular;
+    }
+
+    public void setNumeroDeCelular(String numeroDeCelular) {
+        this.numeroDeCelular = numeroDeCelular;
+    }
+
+    public void imprimiTodosOsDadosDaPessoa() {
+        System.out.println(this);
+    }
+
+    public void mostrarQuantosAnosAhPessoaTeraNoAnoCorrente() {
+        if (this.getAnoDeNascimento() == null) {
+            System.out.println("Ano de nascimento não informado");
+            return;
+        }
+
+
+        Integer anoAtual = Year.now().getValue();
+        Integer anosQueAhPessoaTera = anoAtual - this.getAnoDeNascimento();
+        System.out.println(anosQueAhPessoaTera);
+    }
+
     @Override
     public String toString() {
         return "Pessoa{" +
                 "nome='" + this.getNome() + '\'' +
                 ", anoDeNascimento=" + this.getAnoDeNascimento() +
                 ", altura=" + this.getAltura() +
+                ", numeroDeCelular='" + this.getNumeroDeCelular() + '\'' +
                 '}';
     }
 
-    public void imprimirDadosDaPessoa() {
-        System.out.println(this);
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Pessoa)) return false;
+        Pessoa pessoa = (Pessoa) o;
+        return Objects.equals(getNome(), pessoa.getNome()) && Objects.equals(getNumeroDeCelular(), pessoa.getNumeroDeCelular());
     }
 
-    public void mostrarQuantosFara() {
-        if (this.getAnoDeNascimento() == null){
-            System.out.println("Ano de nascimento não informado");
-            return;
-        }
-
-        Integer anoAtual = Calendar.getInstance().get(Calendar.YEAR); // or Year.now().getValue()
-
-        Integer quantosAnosTera = anoAtual - this.getAnoDeNascimento();
-        System.out.println("A pessoa tera: " + quantosAnosTera + " anos");
+    @Override
+    public int hashCode() {
+        return Objects.hash(getNome(), getNumeroDeCelular());
     }
 }
