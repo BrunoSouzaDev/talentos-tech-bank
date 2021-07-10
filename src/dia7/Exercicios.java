@@ -226,7 +226,8 @@ public class Exercicios {
     }
 
     public static void exercicio6() {
-//        Dado um array de números inteiros com valores negativos e positivos, encontro o número mais próximo de zero. Se ouver valores como 2 e -2, considere o número positivo.
+//        Dado um array de números inteiros com valores negativos e positivos, encontro o número mais próximo de zero.
+//        Se houver valores como 2 e -2, considere o número positivo.
 
         Scanner scan = new Scanner(System.in);
         List<Integer> numeros = new ArrayList<>();
@@ -236,17 +237,42 @@ public class Exercicios {
             numeros.add(scan.nextInt());
         }
 
-
         int aux = Integer.MAX_VALUE;
         for (Integer numero : numeros) {
-            if (numero < aux && numero > 0) {
+            boolean maisProximoDeZero = Math.abs(numero) < Math.abs(aux);
+            boolean maisProximoDeZeroEPositivo = Math.abs(numero) == Math.abs(aux) && numero > aux;
+            if (maisProximoDeZero || maisProximoDeZeroEPositivo) {
                 aux = numero;
             }
         }
         System.out.println(aux);
 
-
         scan.close();
+    }
+
+//    Colega Rafaela Sygliane
+    public static void exercicio6colega() {
+        Scanner in = new Scanner(System.in);
+        int[] numeros = new int[5];
+        for (int i = 0; i < 5; i++) {
+            System.out.println("Digite um número inteiro, varie entre positivo e negativo");
+            numeros[i] = in.nextInt();
+        }
+        in.close();
+
+        int numeroPositivo = Integer.MAX_VALUE;
+        int numeroNegativo = Integer.MIN_VALUE;
+
+        for (Integer numero : numeros) {
+            if (numero < numeroPositivo && numero > 0) {
+                numeroPositivo = numero;
+            }
+            if (numero > numeroNegativo && numero < 0) {
+                numeroNegativo = numero;
+            }
+        }
+        System.out.println("O número mais proximo de zero é: ");
+        System.out.println((numeroPositivo <= Math.abs(numeroNegativo) ? numeroPositivo : numeroNegativo));
     }
 
     public static void main(String[] args) {
