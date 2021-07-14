@@ -1,4 +1,4 @@
-package dia13.banco;
+package dia13.banco.Trybank;
 
 import java.util.Scanner;
 

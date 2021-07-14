@@ -1,8 +1,8 @@
-package dia13.banco;
+package dia13.banco.Trybank;
 
 import java.util.Scanner;
 
-import static dia13.banco.Validador.*;
+import static dia13.banco.Trybank.Validador.*;
 
 
 public class Main {

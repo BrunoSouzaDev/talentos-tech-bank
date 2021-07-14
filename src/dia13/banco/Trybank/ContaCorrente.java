@@ -1,4 +1,4 @@
-package dia13.banco;
+package dia13.banco.Trybank;
 
 public class ContaCorrente extends Conta{
 

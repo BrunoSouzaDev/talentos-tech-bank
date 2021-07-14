@@ -1,0 +1,25 @@
+package dia13.banco.PetBank.domain;
+
+import java.util.Date;
+
+public class Lancamento {
+
+    private Date data;
+    private double movimentacao;
+    private double saldo;
+
+    @Override
+    public String toString() {
+        return "Lancamento{" +
+                "data=" + data +
+                ", movimentacao=" + movimentacao +
+                ", saldo=" + saldo +
+                '}';
+    }
+
+    public Lancamento(Date data, double movimentacao, double saldo) {
+        this.data = data;
+        this.movimentacao = movimentacao;
+        this.saldo = saldo;
+    }
+}
