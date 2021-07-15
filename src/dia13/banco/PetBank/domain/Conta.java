@@ -1,22 +1,26 @@
 package dia13.banco.PetBank.domain;
 
+import java.time.LocalDate;
 import java.util.*;
+
+import static dia13.banco.PetBank.utils.NumberUtils.gerarNumeroDeContaAleatorio;
 
 public abstract class Conta {
 
-    private int numero;
-    private Cliente cliente;
+    private final int numero;
+    private String nome;
     private double saldo;
     private Deque<Lancamento> extrato;
     private String tipoConta;
     private Gerente gerente;
 
-    //TODO: validar se numero de conta ja existe - generate random number
     Conta(String nome, double saldo){
-        this.numero = (int) (Math.random() * 10000);
-        this.cliente = new Cliente(nome);
+        this.numero = gerarNumeroDeContaAleatorio();
+        this.nome = nome;
         this.saldo = saldo;
-        this.extrato = new ArrayDeque<>();
+        this.extrato = new ArrayDeque<>(Arrays.asList(new Lancamento(LocalDate.of(2021, 6, 15), 50, this.saldo),
+                new Lancamento(LocalDate.of(2021, 4, 20), 50, this.saldo), new Lancamento(LocalDate.of(2021, 7, 1), 50, this.saldo),
+                new Lancamento(LocalDate.of(2021, 3, 20), 50, this.saldo), new Lancamento(LocalDate.of(2021, 3, 1), 50, this.saldo)));
         this.tipoConta = this.getClass().getSimpleName();
         this.gerente = new Gerente();
     }
@@ -29,15 +33,25 @@ public abstract class Conta {
         System.out.println("Depósito realizado com sucesso!");
     }
 
+    public void listarExtrato(long dias){
+        System.out.println("Seu extrato:");
+        System.out.println(String.format("Número da conta: %d / Nome: %s", this.numero, this.nome));
+
+        LocalDate limite = LocalDate.now().minusDays(dias);
+
+        extrato.stream().filter(lancamento -> lancamento.getData().isAfter(limite)).forEach(lancamento -> System.out.println(lancamento.toString()));
+    }
+
     public void listarExtrato(){
         System.out.println("Seu extrato:");
-        System.out.println(String.format("Número da conta: %d / Nome: %s", this.numero, this.cliente.getNome()));
+        System.out.println(String.format("Número da conta: %d / Nome: %s", this.numero, this.nome));
+
         extrato.stream().forEach(lancamento -> System.out.println(lancamento.toString()));
     }
 
     public void adicionarLancamento(double valor){
         if(valor != 0){
-            Lancamento lancamento = new Lancamento(new Date(), valor, this.saldo);
+            Lancamento lancamento = new Lancamento(LocalDate.now(), valor, this.saldo);
             getExtrato().push(lancamento);
         }
     }
@@ -56,17 +70,11 @@ public abstract class Conta {
         }
     }
 
-    //TODO: colocar transferencia no extrato
     public abstract void transferirPara(Conta conta, double valor);
 
     public String mostrarNomeCliente(){
-        if(getCliente() != null){
-            return getCliente().getNome();
-        }else{
-            return "Cliente não encontrado.";
-        }
+        return this.nome;
     }
-
 
     public void setSaldo(double saldo) {
         this.saldo = saldo;
@@ -88,13 +96,6 @@ public abstract class Conta {
         return tipoConta;
     }
 
-    public Cliente getCliente() {
-        return cliente;
-    }
-
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
-    }
 
     public Gerente getGerente() {
         return gerente;

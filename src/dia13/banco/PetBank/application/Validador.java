@@ -18,7 +18,21 @@ public class Validador {
         }
     }
 
+    public static void validaInputLong(Scanner sc){
+        if(!sc.hasNextLong()){
+            System.out.println("Você precisa informar um número válido");
+            System.exit(1);
+        }
+    }
+
     public static void validaInputNegativo(double input){
+        if(input < 0){
+            System.out.println("Você precisa informar um número maior do que 0.");
+            System.exit(1);
+        }
+    }
+
+    public static void validaInputNegativo(long input){
         if(input < 0){
             System.out.println("Você precisa informar um número maior do que 0.");
             System.exit(1);

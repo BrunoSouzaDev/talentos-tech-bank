@@ -7,6 +7,7 @@ public class ContaPoupanca extends Conta{
         super(nome, saldo);
     }
 
+    @Override
     public double sacar(double valor){
         if(getSaldo() >= valor) {
             setSaldo(getSaldo()-valor);
@@ -24,6 +25,7 @@ public class ContaPoupanca extends Conta{
     public void transferirPara(Conta conta, double valor) {
         if(getSaldo() >= valor){
             this.setSaldo(this.getSaldo()-valor);
+            this.adicionarLancamento(-valor);
             conta.depositar(valor);
         }
     }

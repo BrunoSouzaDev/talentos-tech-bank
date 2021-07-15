@@ -1,10 +1,11 @@
 package dia13.banco.PetBank.domain;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Lancamento {
 
-    private Date data;
+    private LocalDate data;
     private double movimentacao;
     private double saldo;
 
@@ -17,9 +18,13 @@ public class Lancamento {
                 '}';
     }
 
-    public Lancamento(Date data, double movimentacao, double saldo) {
+    public Lancamento(LocalDate data, double movimentacao, double saldo) {
         this.data = data;
         this.movimentacao = movimentacao;
         this.saldo = saldo;
+    }
+
+    public LocalDate getData() {
+        return data;
     }
 }
