@@ -22,6 +22,7 @@ public class Menu {
     public static void textoMenu(){
         System.out.println("\n------------------------------------------");
         System.out.println(String.format("Olá, %s. Você está acessando a conta %s.\n", contaAtual.mostrarNomeCliente(), contaAtual.getNumero()));
+        System.out.println(String.format("Seu saldo atual é: R$%s. \n", contaAtual.getSaldo()));
         System.out.println("O que deseja fazer? Selecione uma opção:");
         System.out.println(
                 "1) Criar e acessar outra conta\n" +
@@ -92,12 +93,12 @@ public class Menu {
                 break;
             case 10:
                 if(contaAtual.encerrar()) {
-                    System.out.println("Conta fechada.");
+                    System.out.println("Obrigado por usar o PetBank!");
                     System.exit(0);
                 }
                 break;
             default:
-                System.out.println("Vocë não digitou uma opção válida! Digite um valor válido.");
+                System.out.println("Você não digitou uma opção válida! Digite um valor válido.");
                 break;
         }
 

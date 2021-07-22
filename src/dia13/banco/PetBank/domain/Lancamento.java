@@ -1,7 +1,6 @@
 package dia13.banco.PetBank.domain;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 public class Lancamento {
 
@@ -11,11 +10,11 @@ public class Lancamento {
 
     @Override
     public String toString() {
-        return "Lancamento{" +
-                "data=" + data +
-                ", movimentacao=" + movimentacao +
-                ", saldo=" + saldo +
-                '}';
+        return "Lançamento [ " +
+                "data: " + data +
+                ", movimentação: R$" + movimentacao +
+                ", saldo: R$" + saldo +
+                " ]";
     }
 
     public Lancamento(LocalDate data, double movimentacao, double saldo) {

@@ -13,6 +13,7 @@ public abstract class Conta {
     private Deque<Lancamento> extrato;
     private String tipoConta;
     private Gerente gerente;
+    private boolean ativa;
 
     Conta(String nome, double saldo){
         this.numero = gerarNumeroDeContaAleatorio();
@@ -23,6 +24,7 @@ public abstract class Conta {
                 new Lancamento(LocalDate.of(2021, 3, 20), 50, this.saldo), new Lancamento(LocalDate.of(2021, 3, 1), 50, this.saldo)));
         this.tipoConta = this.getClass().getSimpleName();
         this.gerente = new Gerente();
+        this.ativa = true;
     }
 
     public abstract double sacar(double valor);
@@ -58,6 +60,7 @@ public abstract class Conta {
 
     public boolean encerrar(){
         if(saldo == 0){
+            this.ativa = false;
             System.out.println("Conta encerrada!");
             return true;
         } else if (saldo > 0){
@@ -103,5 +106,9 @@ public abstract class Conta {
 
     public void setGerente(Gerente gerente) {
         this.gerente = gerente;
+    }
+
+    public boolean isAtiva() {
+        return ativa;
     }
 }
