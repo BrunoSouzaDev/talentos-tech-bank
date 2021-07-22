@@ -1,4 +1,5 @@
 .idea
 out
 /talentos-tech-bank.iml
-/src/sql/.env
+/src/dia19/.env
+/src/dia22/.env
